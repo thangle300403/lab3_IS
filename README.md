@@ -13,8 +13,10 @@ In this lab, we exploit a vulnerability using the return-to-libc technique. The 
 2. **Construct an environment variable** that holds the command `"rm tmp/dummyfile"`.
 ![Picture2](https://github.com/user-attachments/assets/409281eb-4118-49d9-997a-0a83096dd979)
 3. **Open `vuln.out` in GDB**: Set a breakpoint at `main` and execute the program to obtain the addresses of `system()` and `exit()`.
+
 ![Picture3](https://github.com/user-attachments/assets/ad936c2e-6096-4b25-9cc4-262a3beaba2a)
 4. **Check the environment variable address**: Use the command `x/300s $esp` to find the address, which is `0xffffd995`.
+
 ![Picture4](https://github.com/user-attachments/assets/36b012ae-1a5a-43cc-8aaf-7f4941b9460c)
 5. **Craft the exploit**: Based on the stack frame, the exploit consists of:
    - 68 bytes of padding,
