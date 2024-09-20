@@ -1,5 +1,6 @@
-**LAB 03: RETURN-TO-LIBC**  
+# LAB 03: RETURN-TO-LIBC**  
 LE QUOC THANG - 21110799
+
 In this lab, we exploit a vulnerability using the return-to-libc technique. The `exit()` function address is located right after the `system()` function, allowing the program to exit gracefully once `system()` executes. We pass a memory reference containing the string `/bin/sh` as a parameter to `system()` to execute a command like `"rm tmp/dummyfile"`.
 
 ### Vulnerable program (`vuln.c`) details:
@@ -20,10 +21,17 @@ In this lab, we exploit a vulnerability using the return-to-libc technique. The 
    - The address of `system()`,
    - The address of `exit()`,
    - The address of the environment variable.
- 
+     
+   ![Picture5](https://github.com/user-attachments/assets/282b2f32-44da-4364-9ae0-f593e36aa60f)
 
 ### Final script:
 The payload for the exploit is constructed with a Python command:
 python -c "print('a' * 68 + '\xb0\x0d\xe5\xf7' + '\xe0\x49\xe4\xf7' + '\x99\xd9\xff\xff')"
 
 This completes the return-to-libc attack.
+
+![Picture6](https://github.com/user-attachments/assets/18a4d655-6a94-45c5-97f7-b34e2b1ad101)
+![Picture7](https://github.com/user-attachments/assets/675b7b92-4413-4b2a-b2f7-6800e2e6c31e)
+![Picture8](https://github.com/user-attachments/assets/c6e833ff-ddfc-4efe-a0e6-64cf05d361e3)
+
+
