@@ -13,7 +13,7 @@ In this lab, we exploit a vulnerability using the return-to-libc technique. The 
 | argv           |
 ### Performing the attack:
 1. **Create the necessary files**: Set up a folder `tmp` and create a file `tmp/dummyfile`.
- ![Picture1](https://github.com/user-attachments/assets/68f6ab94-e4ac-4675-add0-b959aff4a819)
+
 2. **Construct an environment variable** that holds the command `"rm tmp/dummyfile"`.
  
 3. **Open `vuln.out` in GDB**: Set a breakpoint at `main` and execute the program to obtain the addresses of `system()` and `exit()`.
