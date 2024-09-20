@@ -9,7 +9,9 @@ In this lab, we exploit a vulnerability using the return-to-libc technique. The 
 ![Screenshot 2024-09-20 142539](https://github.com/user-attachments/assets/7c61cb97-fc2f-4037-a1dd-a88031aebf5d)
 ### Performing the attack:
 1. **Create the necessary files**: Set up a folder `tmp` and create a file `tmp/dummyfile`.
+
 ![Picture1](https://github.com/user-attachments/assets/a1d0f999-1420-42b9-92af-87ad58a58114)
+
 2. **Construct an environment variable** that holds the command `"rm tmp/dummyfile"`.
 ![Picture2](https://github.com/user-attachments/assets/409281eb-4118-49d9-997a-0a83096dd979)
 3. **Open `vuln.out` in GDB**: Set a breakpoint at `main` and execute the program to obtain the addresses of `system()` and `exit()`.
